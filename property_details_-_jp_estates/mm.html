@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Property Details - JP Estates</title>
+
+    <!-- Fonts / Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 4.5.0 -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      /* =========================
+         Container 1250px (design same)
+      ========================== */
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 1250px;
+        }
+      }
+
+      /* -------------------------
+         Base (NO dark mode)
+      -------------------------- */
+      html,
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        margin: 0;
+        color: #0f172a;
+        background: #f8fafc;
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease;
+      }
+
+      /* -------------------------
+         JP Color tokens (direct)
+      -------------------------- */
+      .jp-text-primary {
+        color: #df1e26 !important;
+      }
+
+      /* -------------------------
+         Utilities (no inline)
+      -------------------------- */
+      .jp-pt-32 {
+        padding-top: 32px;
+      }
+      .jp-pb-32 {
+        padding-bottom: 32px;
+      }
+
+      .jp-top-spacer {
+        height: 80px; /* old header height */
+      }
+      .jp-bottom-spacer {
+        height: 48px;
+      }
+
+      .jp-mb-32 {
+        margin-bottom: 32px;
+      }
+
+      .jp-title-row {
+        gap: 16px;
+      }
+
+      .jp-text-14 {
+        font-size: 14px;
+      }
+      .jp-fw-700 {
+        font-weight: 700;
+      }
+
+      .jp-h1 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .jp-h2-24 {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .jp-h2-24-mb16 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+      .jp-h2-24-mb32 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 32px;
+      }
+      .jp-h2-20-mb16 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+
+      .jp-location-head {
+        margin-bottom: 24px;
+      }
+      .jp-location-btn {
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+      }
+
+      .jp-sidebar-col {
+        margin-top: 0;
+      }
+      @media (max-width: 991.98px) {
+        .jp-sidebar-col {
+          margin-top: 32px;
+        }
+      }
+
+      /* -------------------------
+         Gallery grid (CSS grid)
+      -------------------------- */
+      .jp-gallery-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 12px;
+        height: 500px;
+        border-radius: 16px;
+        overflow: hidden;
+        margin-bottom: 32px;
+      }
+      @media (max-width: 1024px) {
+        .jp-gallery-grid {
+          height: 400px;
+        }
+      }
+
+      .jp-gallery-main {
+        grid-row: span 2;
+      }
+
+      .jp-img-wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .jp-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        transition: transform 0.5s ease;
+        display: block;
+      }
+
+      .jp-img-wrap:hover .jp-img {
+        transform: scale(1.05);
+      }
+
+      .jp-img-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.1);
+        transition: background-color 0.2s ease;
+      }
+      .jp-img-wrap:hover .jp-img-overlay {
+        background: rgba(0, 0, 0, 0);
+      }
+
+      .jp-photo-badge {
+        position: absolute;
+        left: 16px;
+        bottom: 16px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 8px;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .jp-photo-badge .material-icons-outlined {
+        font-size: 14px;
+      }
+
+      .jp-viewall-layer {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      .jp-img-wrap:hover .jp-viewall-layer {
+        opacity: 1;
+      }
+
+      .jp-viewall-btn {
+        background: #ffffff;
+        color: #0f172a;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-weight: 500;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+      }
+
+      /* -------------------------
+         Divider / breadcrumb / address / price
+      -------------------------- */
+      .jp-divider {
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 32px;
+        margin-bottom: 24px;
+      }
+
+      .jp-breadcrumb {
+        font-size: 14px;
+        color: #64748b;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .jp-breadcrumb a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .jp-breadcrumb a:hover {
+        color: #df1e26;
+        text-decoration: none;
+      }
+      .jp-breadcrumb .jp-current {
+        color: #0f172a;
+      }
+
+      .jp-address {
+        color: #64748b;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .jp-address .material-icons-outlined {
+        font-size: 18px;
+      }
+
+      .jp-price {
+        font-size: 32px;
+        font-weight: 700;
+        color: #df1e26;
+        line-height: 1.1;
+      }
+      .jp-price small {
+        font-size: 18px;
+        font-weight: 400;
+        color: #64748b;
+      }
+      .jp-price-sub {
+        font-size: 14px;
+        color: #64748b;
+        font-style: italic;
+        margin-top: 6px;
+      }
+
+      /* -------------------------
+         Stat cards
+      -------------------------- */
+      .jp-stat-card {
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        background: #ffffff;
+        padding: 16px;
+        text-align: center;
+      }
+      .jp-stat-icon {
+        color: #df1e26;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .jp-stat-label {
+        font-size: 14px;
+        color: #64748b;
+      }
+      .jp-stat-value {
+        font-weight: 700;
+        margin-top: 2px;
+      }
+
+      /* -------------------------
+         Description
+      -------------------------- */
+      .jp-prose p {
+        margin-bottom: 12px;
+        color: #0f172a;
+      }
+
+      .jp-readmore-btn {
+        margin-top: 16px;
+        border: none;
+        background: transparent;
+        color: #df1e26;
+        font-weight: 600;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .jp-readmore-btn:hover {
+        text-decoration: underline;
+      }
+      .jp-readmore-btn .material-icons-outlined {
+        font-size: 16px;
+      }
+
+      .jp-md-only {
+        display: none;
+      }
+      @media (min-width: 768px) {
+        .jp-md-only {
+          display: block;
+        }
+      }
+
+      /* -------------------------
+         Key features box
+      -------------------------- */
+      .jp-feature-box {
+        background: #f1f5f9;
+        border-radius: 16px;
+        padding: 24px;
+      }
+
+      .jp-feature-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #0f172a;
+        margin-bottom: 12px;
+      }
+      .jp-feature-item .material-icons-outlined {
+        color: #22c55e;
+        font-size: 16px;
+      }
+
+      /* -------------------------
+         Sidebar (sticky)
+      -------------------------- */
+      .jp-sidebar-card {
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        background: #ffffff;
+        padding: 24px;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+        position: sticky;
+        top: 96px;
+      }
+
+      .jp-listedby {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #f1f5f9;
+        margin-bottom: 16px;
+      }
+
+      .jp-agent-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 999px;
+        background: rgba(223, 30, 38, 0.1);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .jp-agent-icon .material-icons-outlined {
+        color: #df1e26;
+      }
+
+      .jp-muted {
+        color: #64748b;
+      }
+
+      .jp-btn-primary-wide {
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        background: #df1e26;
+        color: #fff;
+        font-weight: 700;
+        padding: 14px 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: 0 12px 24px rgba(223, 30, 38, 0.2);
+        transition: opacity 0.15s ease;
+      }
+      .jp-btn-primary-wide:hover {
+        opacity: 0.92;
+      }
+
+      .jp-btn-dark-wide {
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        background: #0f172a;
+        color: #ffffff;
+        font-weight: 700;
+        padding: 14px 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: opacity 0.15s ease;
+      }
+      .jp-btn-dark-wide:hover {
+        opacity: 0.92;
+      }
+
+      .jp-action-row {
+        padding-top: 16px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #64748b;
+      }
+      .jp-action-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: inherit;
+        background: transparent;
+        border: none;
+        padding: 0;
+      }
+      .jp-action-link:hover {
+        color: #df1e26;
+      }
+      .jp-action-link .material-icons-outlined {
+        font-size: 18px;
+      }
+
+      .jp-schedule-box {
+        margin-top: 16px;
+        background: #f8fafc;
+        border: 1px solid #f1f5f9;
+        border-radius: 12px;
+        padding: 16px;
+        font-size: 12px;
+        color: #64748b;
+      }
+      .jp-schedule-title {
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #334155;
+      }
+      .jp-schedule-row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 6px;
+      }
+      .jp-schedule-row strong {
+        font-weight: 600;
+        color: #0f172a;
+      }
+
+      .jp-btn-stack {
+        display: grid;
+        gap: 12px;
+      }
+
+      /* -------------------------
+         Location section
+      -------------------------- */
+      .jp-section-top {
+        margin-top: 64px;
+      }
+
+      .jp-map-wrap {
+        width: 100%;
+        height: 400px;
+        border-radius: 24px;
+        overflow: hidden;
+        background: #e2e8f0;
+        position: relative;
+      }
+
+      .jp-map-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+      }
+
+      .jp-map-center {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+      }
+
+      .jp-map-pin {
+        position: relative;
+        display: inline-block;
+      }
+      .jp-map-pin .material-icons-outlined {
+        font-size: 56px;
+        color: #df1e26;
+        filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35));
+      }
+      .jp-ping-dot {
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        width: 12px;
+        height: 12px;
+        background: #df1e26;
+        border-radius: 999px;
+        animation: jp-ping 1.2s infinite;
+      }
+      @keyframes jp-ping {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(2.2);
+          opacity: 0;
+        }
+      }
+
+      .jp-map-controls {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .jp-map-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        background: #ffffff;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .jp-map-btn:hover {
+        background: #f8fafc;
+      }
+
+      .jp-location-text {
+        margin-top: 16px;
+        font-size: 14px;
+        color: #64748b;
+      }
+
+      /* -------------------------
+         Similar properties
+      -------------------------- */
+      .jp-similar-section {
+        margin-top: 64px;
+        padding-top: 64px;
+        margin-bottom: 80px;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .jp-card {
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        background: #ffffff;
+        overflow: hidden;
+        transition:
+          box-shadow 0.2s ease,
+          transform 0.2s ease;
+      }
+      .jp-card:hover {
+        box-shadow: 0 26px 70px rgba(0, 0, 0, 0.2);
+      }
+
+      .jp-card-media {
+        position: relative;
+        height: 224px;
+        overflow: hidden;
+      }
+      .jp-card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        transition: transform 0.5s ease;
+      }
+      .jp-card:hover .jp-card-media img {
+        transform: scale(1.1);
+      }
+
+      .jp-badge-new {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #0f172a;
+      }
+
+      .jp-badge-price {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-size: 12px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .jp-card-body {
+        padding: 16px;
+      }
+
+      .jp-card-title {
+        font-weight: 700;
+        margin: 0 0 4px 0;
+        transition: color 0.2s ease;
+      }
+      .jp-card:hover .jp-card-title {
+        color: #df1e26;
+      }
+
+      .jp-card-sub {
+        font-size: 14px;
+        color: #64748b;
+        margin-bottom: 12px;
+      }
+
+      .jp-card-meta {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 14px;
+        color: #64748b;
+      }
+      .jp-card-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .jp-card-meta .material-icons-outlined {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header removed (layout same) -->
+    <div class="jp-top-spacer"></div>
+
+    <!-- Main -->
+    <main class="container jp-pt-32 jp-pb-32">
+      <!-- Gallery -->
+      <div class="jp-gallery-grid">
+        <div class="jp-img-wrap jp-gallery-main">
+          <img
+            alt="Main property view"
+            class="jp-img"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuASaX7BiFh4KqJf3CQiATIGrD89dc3rgFUNWR8jVe3kdxSqD_dL5Lzv0TUITMrocsF0Z__h-Lx97hWvn2kkAAUGRtDT3AK4NmPy568PB7Qa-VBLW2SnRtlkbfcZJ2M8GB921KqQlWQ3L1fFui8AY-qu8R6467Y8TVc7oM784buaO9zL__EUBBnIKQcP1B2MzfzTthUBkIgPbVzOdaaC5g79j01tZVRP_AOVPn7fbbFDia4uhiKz8O8D5wVEMXkEwy7dx5lYvnXSmgY"
+          />
+          <div class="jp-img-overlay"></div>
+          <div class="jp-photo-badge">
+            <span class="material-icons-outlined">photo_camera</span> 1 / 20
+          </div>
+        </div>
+
+        <div class="jp-img-wrap">
+          <img
+            alt="Interior view 1"
+            class="jp-img"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHaWkpYZrX6pfRfynv0vr_fb5mIft5uXR7e9jcLshYjcmXtI7oPC5H324w8EkVSVWfj2X9-KLEzx2wOxJznqbHd-vTx44v-iDCh4A0dJ7zJoguSR9IXRFujswFo_iwdenfKRPyDLKMdJmiC64Y4FiDVavnO9k6kAm1mUzjuH4K-tGso0gDEQpnJQwaz6AkPvFEVMZZJ-dodEE6365Q8DKRHFfqtJ7XFPcUeh77C1ovOPqmvG8DjHPyIzL0ixGuln0saT0h376RZqA"
+          />
+          <div class="jp-img-overlay"></div>
+        </div>
+
+        <div class="jp-img-wrap">
+          <img
+            alt="Interior view 2"
+            class="jp-img"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDMCxrZQaDo9sycy5HJzmtgERIhxYYlBpaUrVMIntNPCBvsBxlgEgS25VojQyvgGPgYdpQvY5IWtl0X5DT7ZSuVcrCtNiiRzno64ucXLIRSjrjP0roXFGXzE0a6I-yFOS01x3jzGNLLOPpXW5cNNnvjvv0gUWS0ZmqQB8Iv30DpVSfMzyONE3fpKuJkfdJEAlcWw6V_gouQaaG33oV1MsCG6q92Km8yTFH5DhBMOgbHibtb_B_oOM5tWl3m84JvhtJ73Hd0C8t6uQ"
+          />
+          <div class="jp-img-overlay"></div>
+          <div class="jp-viewall-layer">
+            <button class="jp-viewall-btn" type="button">
+              View all photos
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content grid -->
+      <div class="row">
+        <!-- Left -->
+        <div class="col-lg-8">
+          <!-- Title row -->
+          <div class="jp-divider">
+            <div
+              class="d-flex flex-column flex-md-row align-items-md-end justify-content-between jp-title-row"
+            >
+              <div>
+                <div class="jp-breadcrumb">
+                  <a href="#">Home</a><span>/</span> <a href="#">Oldham</a
+                  ><span>/</span>
+                  <span class="jp-current">Rochdale Road</span>
+                </div>
+
+                <h1 class="jp-h1">560 Rochdale Road</h1>
+
+                <div class="jp-address">
+                  <span class="material-icons-outlined">place</span>
+                  Royton, Oldham, OL2 6SH
+                </div>
+              </div>
+
+              <div class="text-left text-md-right">
+                <div class="jp-price">£1,995.00 <small>/ pcm</small></div>
+                <div class="jp-price-sub">(approx. £460 / per week)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="row jp-mb-32">
+            <div class="col-6 col-sm-3 mb-3 mb-sm-0">
+              <div class="jp-stat-card">
+                <span class="material-icons-outlined jp-stat-icon">bed</span>
+                <div class="jp-stat-label">Bedrooms</div>
+                <div class="jp-stat-value">5 Rooms</div>
+              </div>
+            </div>
+            <div class="col-6 col-sm-3 mb-3 mb-sm-0">
+              <div class="jp-stat-card">
+                <span class="material-icons-outlined jp-stat-icon"
+                  >bathtub</span
+                >
+                <div class="jp-stat-label">Bathrooms</div>
+                <div class="jp-stat-value">2 Full</div>
+              </div>
+            </div>
+            <div class="col-6 col-sm-3">
+              <div class="jp-stat-card">
+                <span class="material-icons-outlined jp-stat-icon"
+                  >apartment</span
+                >
+                <div class="jp-stat-label">Type</div>
+                <div class="jp-stat-value">Terraced</div>
+              </div>
+            </div>
+            <div class="col-6 col-sm-3">
+              <div class="jp-stat-card">
+                <span class="material-icons-outlined jp-stat-icon"
+                  >straighten</span
+                >
+                <div class="jp-stat-label">Area</div>
+                <div class="jp-stat-value">1,450 sqft</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <section class="jp-mb-32">
+            <h2 class="jp-h2-24-mb16">Description</h2>
+
+            <div class="jp-prose">
+              <p>
+                This spacious family home benefits from high ceilings, a
+                well-planned layout and modern finishings throughout. Every
+                convenience has been carefully thought through, right down to
+                the leisure facilities.
+              </p>
+              <p>
+                This includes a home cinema, spacious home gym and sauna. The
+                house is located in a popular residential area close to all
+                local amenities and public transport. Comprising Entrance hall,
+                large through-lounge, and a state-of-the-art kitchen.
+              </p>
+              <p class="jp-md-only">
+                The property has been recently refurbished to a high standard,
+                offering a blend of traditional Victorian character with
+                contemporary living. Large windows allow for ample natural
+                light, creating an airy and welcoming atmosphere across all
+                three floors.
+              </p>
+            </div>
+
+            <button class="jp-readmore-btn" type="button">
+              Read more <span class="material-icons-outlined">expand_more</span>
+            </button>
+          </section>
+
+          <!-- Key Features -->
+          <section class="jp-feature-box">
+            <h2 class="jp-h2-20-mb16">Key Features</h2>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="jp-feature-item">
+                  <span class="material-icons-outlined">check_circle</span>
+                  Recently Refurbished
+                </div>
+                <div class="jp-feature-item">
+                  <span class="material-icons-outlined">check_circle</span>
+                  Close to Public Transport
+                </div>
+                <div class="jp-feature-item">
+                  <span class="material-icons-outlined">check_circle</span> Home
+                  Gym &amp; Sauna
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="jp-feature-item">
+                  <span class="material-icons-outlined">check_circle</span>
+                  Modern Fitted Kitchen
+                </div>
+                <div class="jp-feature-item">
+                  <span class="material-icons-outlined">check_circle</span>
+                  Energy Efficient (EPC B)
+                </div>
+                <div class="jp-feature-item">
+                  <span class="material-icons-outlined">check_circle</span>
+                  Private Rear Garden
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right -->
+        <div class="col-lg-4 jp-sidebar-col">
+          <div class="jp-sidebar-card">
+            <div class="jp-listedby">
+              <div class="jp-agent-icon">
+                <span class="material-icons-outlined">support_agent</span>
+              </div>
+              <div>
+                <div class="jp-muted jp-text-14">Listed by</div>
+                <div class="jp-fw-700">JP Estates Oldham</div>
+              </div>
+            </div>
+
+            <div class="jp-btn-stack">
+              <button class="jp-btn-primary-wide" type="button">
+                <span class="material-icons-outlined">email</span> Request
+                Details
+              </button>
+              <button class="jp-btn-dark-wide" type="button">
+                <span class="material-icons-outlined">phone</span> Call 0161 123
+                4567
+              </button>
+            </div>
+
+            <div class="jp-action-row">
+              <button class="jp-action-link" type="button">
+                <span class="material-icons-outlined">favorite_border</span>
+                Save
+              </button>
+              <button class="jp-action-link" type="button">
+                <span class="material-icons-outlined">share</span> Share
+              </button>
+              <button class="jp-action-link" type="button">
+                <span class="material-icons-outlined">report</span> Report
+              </button>
+            </div>
+
+            <div class="jp-schedule-box">
+              <div class="jp-schedule-title">Property Schedule</div>
+
+              <div class="jp-schedule-row">
+                <span>Available from</span>
+                <strong>Immediately</strong>
+              </div>
+              <div class="jp-schedule-row">
+                <span>Minimum term</span>
+                <strong>12 Months</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <section class="jp-section-top">
+        <div
+          class="d-flex align-items-center justify-content-between jp-location-head"
+        >
+          <h2 class="jp-h2-24">Location</h2>
+          <button
+            type="button"
+            class="btn btn-link p-0 jp-text-primary jp-location-btn"
+          >
+            Get Directions
+          </button>
+        </div>
+
+        <div class="jp-map-wrap">
+          <img
+            alt="Map Location"
+            class="jp-map-img"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG8TG8rqSvb2W3k5ggWMuf6LVOCnHXsvPuARZZlyFQMxZt1QJAFb7tmnM6_GDGIUgVeF18XvnUxjBhbnlpfUebeYE0Y71hgGL0By3nnfQ8s8Y2GOyU4aNguS_fxn68KVa9-hsaHCuVrwLRz2Zg-o5UCXH6F0xT8hLf7wN0VeJUEQpvUIL8X3dyCi7bpct5AZQrp8P7h3VLs3O4UsXiJaX5jB6SPM55HwBiq_6XxQ0jIUcz4TrJ-RjcKbaQyZ04vLPACeCCVX1of80"
+          />
+
+          <div class="jp-map-center">
+            <div class="jp-map-pin">
+              <span class="material-icons-outlined">place</span>
+              <span class="jp-ping-dot"></span>
+            </div>
+          </div>
+
+          <div class="jp-map-controls">
+            <button class="jp-map-btn" type="button" aria-label="Zoom in">
+              <span class="material-icons-outlined">add</span>
+            </button>
+            <button class="jp-map-btn" type="button" aria-label="Zoom out">
+              <span class="material-icons-outlined">remove</span>
+            </button>
+          </div>
+        </div>
+
+        <p class="jp-location-text">
+          Royton is a popular residential area within Oldham, offering excellent
+          access to both local amenities and the surrounding countryside. Major
+          transport links include the A627(M) and M62 motorways.
+        </p>
+      </section>
+
+      <!-- Similar Properties Nearby (NOTHING MISSED) -->
+      <section class="jp-similar-section">
+        <h2 class="jp-h2-24-mb32">Similar Properties Nearby</h2>
+
+        <div class="row">
+          <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="jp-card">
+              <div class="jp-card-media">
+                <img
+                  alt="Similar property"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoVXv_JoukZ52rytUV0MoGjLd4QHVG7rKbKiDiLyCM1m3YcLpbzTrwzMSWstLwEnX2ZTXqGO4c-M5uXkhT08ud2nqj01OveV4IPZ4dCIxVqf9to14njL-5tUG__HkrSlte738gv6Tf_gNfu1ORdoEopgDaZWm2SpCcvphDQCd4sQQjJibPvGU0cEQzWYF36sS-ukfp3q5c7guozm4C7GVvO3HpCOuZ88U4wNzXJCiosfa1juV3iMp7SbO06StJne0Q0CEOW0YdNaw"
+                />
+                <div class="jp-badge-new">New</div>
+                <div class="jp-badge-price">£1,850 pcm</div>
+              </div>
+              <div class="jp-card-body">
+                <div class="jp-card-title">42 Middleton Road</div>
+                <div class="jp-card-sub">Oldham, OL2 5TS</div>
+                <div class="jp-card-meta">
+                  <span
+                    ><span class="material-icons-outlined">bed</span> 4</span
+                  >
+                  <span
+                    ><span class="material-icons-outlined">bathtub</span>
+                    2</span
+                  >
+                  <span
+                    ><span class="material-icons-outlined">square_foot</span>
+                    1.2k</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="jp-card">
+              <div class="jp-card-media">
+                <img
+                  alt="Similar property"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuASpnMhrmhLcP0RDZuEvpaOuldA-L5MjHWGyfnpK8FHD3Kiirq5deB_mUCVwDNzsaNL8F2-oq4nEXNJQ4W9c8eidm2WcWCmDbHnmlf8W-V-CJpt68Ir5fLFqsTH4GmHoOt5EEt1OHYCnrttMcveQml_ZcjZoZIZSeT69zG98YzUKtOf4PZlPdUhbiHCgPWfT1tGT4oaD8-WqEKcgAw9jn-p1QpPCdUfngyxjRqzFo7jXaicNNLI0rVBcNp0ZFcDkY62reltEm1iByQ"
+                />
+                <div class="jp-badge-price">£2,100 pcm</div>
+              </div>
+              <div class="jp-card-body">
+                <div class="jp-card-title">Greenhill Gardens</div>
+                <div class="jp-card-sub">Royton, OL2 6PD</div>
+                <div class="jp-card-meta">
+                  <span
+                    ><span class="material-icons-outlined">bed</span> 5</span
+                  >
+                  <span
+                    ><span class="material-icons-outlined">bathtub</span>
+                    3</span
+                  >
+                  <span
+                    ><span class="material-icons-outlined">square_foot</span>
+                    1.8k</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="jp-card">
+              <div class="jp-card-media">
+                <img
+                  alt="Similar property"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1TSyuXPigSDcpKP1UPqDEva0mHH6CFObPinuATr4uhXkhYgDmzWTBdw-QofsfdFNoETZJbwRO35rJlxDtVRPOeib5BdXh0Ns7kEycA6h5jR3iNEu7vZL96wCukd5GkClRhuf8oIVOOvSP517Yu3FU6YmfaPi1_7DhwXrjXMZIxJY3ppcI-8otY91Wrax7MAXUI3PFGo2YiW6szgZvc0PU8EHJlcH2sYrVZWLS41L7sEgfFo8qJQ1mYRQUxk__T2Ek8oeTdyARBdg"
+                />
+                <div class="jp-badge-price">£1,900 pcm</div>
+              </div>
+              <div class="jp-card-body">
+                <div class="jp-card-title">Oakfield Avenue</div>
+                <div class="jp-card-sub">Oldham, OL8 2BH</div>
+                <div class="jp-card-meta">
+                  <span
+                    ><span class="material-icons-outlined">bed</span> 5</span
+                  >
+                  <span
+                    ><span class="material-icons-outlined">bathtub</span>
+                    2</span
+                  >
+                  <span
+                    ><span class="material-icons-outlined">square_foot</span>
+                    1.5k</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="jp-bottom-spacer"></div>
+    </main>
+
+    <!-- Bootstrap 4.5.0 JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

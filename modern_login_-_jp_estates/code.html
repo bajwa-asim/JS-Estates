@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern Login - JP Estates</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#E11D48", // Vibrant Red
+              "background-light": "#F9FAFB",
+              "background-dark": "#0F172A",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              sans: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              'xl': "1rem",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300">
+<header class="w-full px-6 py-6 lg:px-12 flex justify-between items-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg shadow-lg shadow-primary/20">
+<span class="text-white font-bold text-xl">JP</span>
+</div>
+<div class="ml-3">
+<div class="font-bold text-xl tracking-tight text-slate-900 dark:text-white leading-none">ESTATES</div>
+<div class="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-widest uppercase mt-0.5">www.jpestates.co.uk</div>
+</div>
+</div>
+</div>
+<nav class="flex items-center gap-8">
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">Contact</a>
+<a class="text-sm font-semibold text-primary" href="#">Login</a>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons text-xl dark:hidden">dark_mode</span>
+<span class="material-icons text-xl hidden dark:block">light_mode</span>
+</button>
+</nav>
+</header>
+<main class="flex-grow flex items-center justify-center p-6 bg-gradient-to-br from-background-light to-slate-100 dark:from-background-dark dark:to-slate-900">
+<div class="w-full max-w-md">
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-2xl shadow-slate-200 dark:shadow-none border border-slate-200 dark:border-slate-700 overflow-hidden transition-all duration-300">
+<div class="p-8 lg:p-10">
+<div class="text-center mb-10">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Login</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Welcome back to premium living</p>
+</div>
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300 ml-1" for="email">Email Address</label>
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">mail_outline</span>
+<input class="w-full pl-11 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white" id="email" placeholder="your@email.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300 ml-1" for="password">Password</label>
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">lock_outline</span>
+<input class="w-full pl-11 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="flex items-center cursor-pointer group">
+<input class="w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary dark:bg-slate-900 dark:border-slate-700" type="checkbox"/>
+<span class="ml-2 text-sm text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200 transition-colors">Show Password</span>
+</label>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-rose-500 hover:from-rose-600 hover:to-primary text-white font-semibold py-3.5 rounded-lg shadow-lg shadow-primary/25 transform transition active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-slate-800">
+                            Login
+                        </button>
+<div class="text-center pt-2">
+<a class="text-sm font-medium text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors" href="#">Forgot Password?</a>
+</div>
+</form>
+<div class="relative my-8">
+<div class="absolute inset-0 flex items-center">
+<span class="w-full border-t border-slate-200 dark:border-slate-700"></span>
+</div>
+<div class="relative flex justify-center text-xs uppercase">
+<span class="bg-white dark:bg-slate-800 px-3 text-slate-500">New to JP Estates?</span>
+</div>
+</div>
+<button class="w-full bg-transparent border-2 border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary font-semibold py-3 rounded-lg transition-all duration-300">
+                        Create Account
+                    </button>
+</div>
+</div>
+<footer class="mt-8 text-center">
+<p class="text-xs text-slate-400 dark:text-slate-500">
+                    © 2024 JP Estates. All rights reserved. <br class="sm:hidden"/>
+<a class="hover:underline ml-1" href="#">Privacy Policy</a> • <a class="hover:underline ml-1" href="#">Terms of Service</a>
+</p>
+</footer>
+</div>
+</main>
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+<div class="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute bottom-[5%] -right-[5%] w-[30%] h-[30%] bg-blue-500/5 rounded-full blur-3xl"></div>
+</div>
+
+</body></html>

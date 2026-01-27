@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact Us - JP Estates</title>
+
+    <!-- Bootstrap 4.5.0 -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+
+    <!-- Fonts + Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Bootstrap container width exactly 1250 on desktop */
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 1250px;
+        }
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: #f9fafb;
+        color: #0f172a;
+      }
+
+      /* ---------------------------
+         Scoped / Generic Classes (conflict-safe)
+         --------------------------- */
+
+      .re-section {
+        padding: 48px 0;
+      }
+
+      .re-title {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 8px;
+      }
+
+      .re-muted {
+        color: #64748b;
+      }
+
+      .re-card {
+        background: #ffffff;
+        border: 1px solid #f1f5f9;
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      }
+
+      .re-label {
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #0f172a;
+      }
+      .re-label small {
+        font-weight: 400;
+        color: #94a3b8;
+        font-size: 12px;
+      }
+
+      .re-control,
+      .re-textarea {
+        width: 100%;
+        padding: 12px 16px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        outline: none;
+        transition:
+          box-shadow 150ms ease,
+          border-color 150ms ease;
+        color: #0f172a;
+      }
+      .re-textarea {
+        resize: none;
+      }
+
+      .re-control:focus,
+      .re-textarea:focus {
+        border-color: transparent;
+        box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.35);
+      }
+
+      .re-iconfield {
+        position: relative;
+      }
+      .re-iconfield .re-icon {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #94a3b8;
+        font-size: 20px;
+        pointer-events: none;
+      }
+      .re-control.re-padleft {
+        padding-left: 44px;
+      }
+
+      .re-btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 0;
+        color: #ffffff;
+        font-weight: 800;
+        padding: 14px 32px;
+        border-radius: 12px;
+        background: linear-gradient(90deg, #e11d48 0%, #f43f5e 100%);
+        box-shadow: 0 14px 26px rgba(244, 63, 94, 0.22);
+        transform: scale(1);
+        transition:
+          transform 150ms ease,
+          box-shadow 200ms ease;
+        outline: none !important;
+      }
+      .re-btn-primary:hover {
+        transform: scale(1.02);
+      }
+      .re-btn-primary:active {
+        transform: scale(0.98);
+      }
+      .re-btn-primary .material-icons {
+        font-size: 20px;
+      }
+
+      @media (max-width: 767.98px) {
+        .re-btn-primary {
+          width: 100%;
+        }
+      }
+
+      /* Right card */
+      .re-sticky {
+        position: sticky;
+        top: 128px;
+      }
+      @media (max-width: 991.98px) {
+        .re-sticky {
+          position: static;
+          top: auto;
+        }
+      }
+
+      .re-prop {
+        background: #ffffff;
+        border: 1px solid #f1f5f9;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+      }
+
+      .re-media {
+        position: relative;
+        overflow: hidden;
+        padding-top: 75%;
+      }
+      .re-media img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        transition: transform 700ms ease;
+      }
+      .re-prop:hover .re-media img {
+        transform: scale(1.05);
+      }
+
+      .re-fav {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        border: 0;
+        border-radius: 999px;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+        color: #475569;
+        transition: color 150ms ease;
+        outline: none !important;
+      }
+      .re-fav:hover {
+        color: #e11d48;
+      }
+
+      .re-badge {
+        position: absolute;
+        left: 16px;
+        bottom: 16px;
+        background: #e11d48;
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 800;
+        padding: 6px 12px;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .re-body {
+        padding: 32px;
+      }
+
+      .re-prop-title {
+        font-size: 30px;
+        color: #0f172a;
+        margin-bottom: 8px;
+      }
+
+      .re-loc {
+        display: flex;
+        align-items: center;
+        color: #64748b;
+        font-size: 13px;
+        margin-bottom: 24px;
+      }
+      .re-loc .material-icons {
+        font-size: 16px;
+        margin-right: 6px;
+      }
+
+      .re-meta {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        padding: 16px 0;
+        border-top: 1px solid #f1f5f9;
+        border-bottom: 1px solid #f1f5f9;
+        color: #475569;
+        margin-bottom: 24px;
+      }
+      .re-meta-item {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .re-meta-item .material-icons {
+        color: #e11d48;
+        font-size: 20px;
+        margin-right: 8px;
+      }
+
+      .re-desc {
+        color: #475569;
+        font-size: 13px;
+        line-height: 1.7;
+        margin-bottom: 32px;
+      }
+
+      .re-bottom {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .re-kicker {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: #94a3b8;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .re-price {
+        font-size: 30px;
+        font-weight: 900;
+        color: #0f172a;
+        line-height: 1.1;
+      }
+
+      .re-status {
+        font-size: 11px;
+        font-weight: 900;
+        color: #e11d48;
+        background: #fff1f2;
+        padding: 8px 12px;
+        border-radius: 10px;
+        align-self: flex-end;
+      }
+
+      /* mini badges */
+      .re-miniwrap {
+        margin-top: 32px;
+      }
+      .re-mini {
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 16px;
+        padding: 16px;
+        text-align: center;
+      }
+      .re-mini .material-icons {
+        color: #94a3b8;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .re-mini .re-minitxt {
+        display: block;
+        font-size: 10px;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #64748b;
+        letter-spacing: 0.06em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="re-section">
+      <div class="container">
+        <div class="row">
+          <!-- Left -->
+          <div class="col-lg-7">
+            <div class="mb-4">
+              <h1 class="re-title">Request Details</h1>
+              <p class="re-muted mb-0">
+                Fill in the form below and our property experts will get back to
+                you shortly regarding
+                <span class="font-weight-bold" style="color: #0f172a"
+                  >560 Rochdale Road</span
+                >.
+              </p>
+            </div>
+
+            <div class="re-card">
+              <form action="#" method="POST">
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label class="re-label" for="first-name">First name</label>
+                    <input
+                      class="re-control"
+                      id="first-name"
+                      placeholder="Eg. John"
+                      type="text"
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label class="re-label" for="last-name">Last name</label>
+                    <input
+                      class="re-control"
+                      id="last-name"
+                      placeholder="Eg. Smith"
+                      type="text"
+                    />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label class="re-label" for="telephone">Telephone</label>
+                    <input
+                      class="re-control"
+                      id="telephone"
+                      placeholder="Eg. 07700 900 000"
+                      type="tel"
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label class="re-label" for="company"
+                      >Company Name <small>(Optional)</small></label
+                    >
+                    <input
+                      class="re-control"
+                      id="company"
+                      placeholder="Eg. ABC Corporation"
+                      type="text"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="re-label" for="email">Email address</label>
+                  <input
+                    class="re-control"
+                    id="email"
+                    placeholder="Eg. john.smith@email.com"
+                    type="email"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="re-label" for="address">Address</label>
+                  <div class="re-iconfield">
+                    <span class="material-icons re-icon">place</span>
+                    <input
+                      class="re-control re-padleft"
+                      id="address"
+                      placeholder="Start Typing Your Address"
+                      type="text"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group mb-4">
+                  <label class="re-label" for="message"
+                    >Your message <small>(Optional)</small></label
+                  >
+                  <textarea
+                    class="re-textarea"
+                    id="message"
+                    placeholder="Start typing..."
+                    rows="4"
+                  ></textarea>
+                </div>
+
+                <button class="re-btn-primary" type="submit">
+                  <span class="material-icons">send</span>
+                  <span>Send Inquiry</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right -->
+          <div class="col-lg-5 mt-5 mt-lg-0">
+            <div class="re-sticky">
+              <div class="re-prop">
+                <div class="re-media">
+                  <img
+                    alt="560 Rochdale Road"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-VN8PWc3kTDBdvIr0249oAL3aWs6o28bZuhpASn15-vBp3ITpH4xsi6aDhGPMpJIrHIfI22Cf3E2AzutPwlgicQ1LcdwViI8BltExSt9YLwQfw31x0j1S_28tzgDr8nugx8E9hZmI8dh3-S2Rnx_YxOZBkV3YkHphKgvVodxHguV6SIGm6cNl4o50ZfWLF-gr4Wg0f9GxhIig87KiKhuYnG4vHlN97PO5B28ibUiGbJAUp_37CmQSdqF2s15VKeYjXaYcU_IyzBc"
+                  />
+                  <button class="re-fav" type="button" aria-label="Favorite">
+                    <span class="material-icons">favorite_border</span>
+                  </button>
+                  <span class="re-badge">Featured Property</span>
+                </div>
+
+                <div class="re-body">
+                  <h2 class="re-prop-title">560 Rochdale Road</h2>
+                  <div class="re-loc">
+                    <span class="material-icons">location_on</span>
+                    Royton, Oldham, OL2
+                  </div>
+
+                  <div class="re-meta">
+                    <div class="re-meta-item">
+                      <span class="material-icons">home</span>
+                      Terraced
+                    </div>
+                    <div class="re-meta-item">
+                      <span class="material-icons">king_bed</span>
+                      3 Beds
+                    </div>
+                    <div class="re-meta-item">
+                      <span class="material-icons">bathtub</span>
+                      2 Baths
+                    </div>
+                  </div>
+
+                  <p class="re-desc">
+                    This spacious family home benefits from high ceilings, a
+                    well planned layout and modern finishings throughout.
+                    Perfect for professional couples or small families looking
+                    for a premium living experience.
+                  </p>
+
+                  <div class="re-bottom">
+                    <div>
+                      <span class="re-kicker">Monthly Rent</span>
+                      <span class="re-price">£1,995.00</span>
+                    </div>
+                    <div class="re-status">AVAILABLE NOW</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row no-gutters re-miniwrap">
+                <div class="col-4 pr-2">
+                  <div class="re-mini">
+                    <span class="material-icons">verified_user</span>
+                    <span class="re-minitxt">Secure</span>
+                  </div>
+                </div>
+                <div class="col-4 px-1">
+                  <div class="re-mini">
+                    <span class="material-icons">support_agent</span>
+                    <span class="re-minitxt">24/7 Support</span>
+                  </div>
+                </div>
+                <div class="col-4 pl-2">
+                  <div class="re-mini">
+                    <span class="material-icons">speed</span>
+                    <span class="re-minitxt">Fast Response</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
