@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Full Width Search Results - JP Estates</title>
+
+    <!-- Bootstrap 4.5.0 -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+
+    <!-- Fonts / Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Base */
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: #f8fafc;
+        color: #0f172a;
+        min-height: 100vh;
+        transition:
+          background 300ms ease,
+          color 300ms ease;
+      }
+
+      /* Dark mode (NO CSS variables) */
+      html.dark body {
+        background: #0f172a;
+        color: #f1f5f9;
+      }
+
+      /* Container max width (Bootstrap-ish but custom ~1250px) */
+      .sr-container {
+        max-width: 1250px;
+      }
+
+      /* Colors */
+      .sr-primary-bg {
+        background: #e11d48;
+      }
+      .sr-primary-text {
+        color: #e11d48;
+      }
+
+      /* Filter bar */
+      .sr-filters {
+        position: sticky;
+        top: 0;
+        z-index: 1040;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      html.dark .sr-filters {
+        background: #0b1220;
+        border-bottom: 1px solid #1e293b;
+      }
+      .sr-filter-label {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #94a3b8;
+        margin-bottom: 6px;
+        margin-left: 4px;
+      }
+      .sr-select {
+        height: 42px;
+        border-radius: 14px;
+        font-size: 14px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        box-shadow: none;
+      }
+      html.dark .sr-select {
+        background: #1e293b;
+        border: 1px solid #334155;
+        color: #e2e8f0;
+      }
+      .sr-select:focus {
+        border-color: #e11d48 !important;
+        box-shadow: 0 0 0 0.2rem rgba(225, 29, 72, 0.15) !important;
+      }
+
+      .sr-btn-update {
+        height: 42px;
+        padding: 0 32px;
+        border-radius: 14px;
+        font-weight: 700;
+        background: #e11d48;
+        color: #ffffff;
+        border: none;
+        box-shadow: 0 18px 35px rgba(225, 29, 72, 0.3);
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease;
+      }
+      .sr-btn-update:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 22px 45px rgba(225, 29, 72, 0.4);
+      }
+
+      /* Header */
+      .sr-subtext {
+        color: #64748b;
+      }
+      html.dark .sr-subtext {
+        color: #94a3b8;
+      }
+
+      .sr-header-title {
+        font-size: 32px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+
+      .sr-header-row-wrap {
+        gap: 16px;
+      }
+
+      .sr-sell-box {
+        background: #0f172a;
+        border: 1px solid #1e293b;
+        border-radius: 14px;
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      html.dark .sr-sell-box {
+        background: rgba(225, 29, 72, 0.1);
+        border: 1px solid rgba(225, 29, 72, 0.2);
+      }
+      .sr-sell-small {
+        font-size: 12px;
+        font-weight: 600;
+        color: #cbd5e1;
+      }
+      html.dark .sr-sell-small {
+        color: #e11d48;
+      }
+      .sr-sell-link {
+        font-size: 14px;
+        font-weight: 800;
+        color: #ffffff;
+        text-decoration: none;
+      }
+      html.dark .sr-sell-link {
+        color: #e11d48;
+      }
+      .sr-sell-link:hover {
+        text-decoration: underline;
+      }
+
+      .sr-view-toggle {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 6px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      html.dark .sr-view-toggle {
+        background: #1e293b;
+        border: 1px solid #334155;
+      }
+      .sr-toggle-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: transparent;
+        color: #94a3b8;
+        transition:
+          background 150ms ease,
+          color 150ms ease;
+      }
+      .sr-toggle-btn:hover {
+        background: #f8fafc;
+        color: #94a3b8;
+      }
+      html.dark .sr-toggle-btn:hover {
+        background: #0b1220;
+      }
+      .sr-toggle-btn.sr-active {
+        background: #f1f5f9;
+        color: #e11d48;
+      }
+      html.dark .sr-toggle-btn.sr-active {
+        background: #334155;
+      }
+
+      /* Main padding */
+      .sr-main {
+        padding-top: 32px;
+        padding-bottom: 32px;
+      }
+      .sr-stack-32 {
+        gap: 32px;
+      }
+
+      /* Cards */
+      .sr-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        transition:
+          box-shadow 280ms ease,
+          transform 280ms ease;
+      }
+      html.dark .sr-card {
+        background: #1e293b;
+        border: 1px solid #334155;
+      }
+      .sr-card:hover {
+        box-shadow: 0 28px 70px rgba(2, 6, 23, 0.18);
+      }
+
+      .sr-media {
+        position: relative;
+        width: 100%;
+        height: 320px;
+        overflow: hidden;
+        flex: 0 0 auto;
+      }
+      @media (min-width: 992px) {
+        .sr-media {
+          height: auto;
+          min-height: 100%;
+        }
+        .sr-media.sr-w-480 {
+          width: 480px;
+        }
+      }
+      @media (min-width: 1200px) {
+        .sr-media.sr-w-560 {
+          width: 560px;
+        }
+      }
+
+      .sr-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        transition: transform 700ms ease;
+      }
+      .sr-card:hover .sr-media img {
+        transform: scale(1.05);
+      }
+
+      .sr-chip {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: #ffffff;
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-size: 12px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .sr-chip .material-symbols-outlined {
+        font-size: 18px;
+      }
+
+      .sr-new {
+        position: absolute;
+        top: 24px;
+        left: 112px;
+        background: #e11d48;
+        color: #ffffff;
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-size: 12px;
+        font-weight: 800;
+        box-shadow: 0 18px 35px rgba(225, 29, 72, 0.35);
+      }
+
+      .sr-dots {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+      }
+      .sr-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+      .sr-dot.sr-dot-active {
+        background: #ffffff;
+      }
+
+      .sr-fav {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        border: none;
+        background: rgba(255, 255, 255, 0.9);
+        color: #94a3b8;
+        box-shadow: 0 10px 25px rgba(2, 6, 23, 0.18);
+        transition:
+          transform 160ms ease,
+          color 160ms ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      html.dark .sr-fav {
+        background: rgba(15, 23, 42, 0.9);
+      }
+      .sr-fav:hover {
+        color: #e11d48;
+        transform: scale(1.1);
+      }
+      .sr-fav:active {
+        transform: scale(0.95);
+      }
+
+      .sr-card-body {
+        padding: 28px;
+      }
+      @media (min-width: 1200px) {
+        .sr-card-body {
+          padding: 40px;
+        }
+      }
+
+      .sr-title {
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        font-size: 24px;
+        margin: 0;
+        transition: color 200ms ease;
+      }
+      @media (min-width: 1200px) {
+        .sr-title {
+          font-size: 34px;
+        }
+      }
+      .sr-card:hover .sr-title {
+        color: #e11d48;
+      }
+
+      .sr-loc {
+        margin-top: 10px;
+        color: #64748b;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 18px;
+      }
+      html.dark .sr-loc {
+        color: #94a3b8;
+      }
+      .sr-loc .material-symbols-outlined {
+        font-size: 20px;
+      }
+
+      .sr-price {
+        color: #e11d48;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        font-size: 28px;
+        line-height: 1;
+      }
+      @media (min-width: 1200px) {
+        .sr-price {
+          font-size: 34px;
+        }
+      }
+
+      .sr-price-sub {
+        color: #64748b;
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 6px;
+      }
+      html.dark .sr-price-sub {
+        color: #94a3b8;
+      }
+
+      .sr-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 22px;
+        margin-bottom: 26px;
+      }
+      .sr-badge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #f8fafc;
+        border: 1px solid #f1f5f9;
+        border-radius: 14px;
+        padding: 10px 16px;
+        font-weight: 700;
+        color: #0f172a;
+      }
+      html.dark .sr-badge {
+        background: #0b1220;
+        border: 1px solid #1e293b;
+        color: #f1f5f9;
+      }
+      .sr-badge .material-symbols-outlined {
+        color: #94a3b8;
+        font-size: 22px;
+      }
+
+      .sr-desc {
+        color: #475569;
+        font-size: 18px;
+        line-height: 1.65;
+        margin-bottom: 18px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      html.dark .sr-desc {
+        color: #94a3b8;
+      }
+
+      .sr-details {
+        color: #e11d48;
+        font-weight: 800;
+        font-size: 16px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .sr-details:hover {
+        text-decoration: underline;
+      }
+      .sr-details .material-symbols-outlined {
+        font-size: 20px;
+        transition: transform 180ms ease;
+      }
+      .sr-details:hover .material-symbols-outlined {
+        transform: translateX(4px);
+      }
+
+      .sr-divider {
+        margin-top: 26px;
+        padding-top: 26px;
+        border-top: 1px solid #f1f5f9;
+      }
+      html.dark .sr-divider {
+        border-top: 1px solid #334155;
+      }
+
+      .sr-agent {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .sr-agent-logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 16px;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      }
+      html.dark .sr-agent-logo {
+        background: #334155;
+        border: 1px solid #475569;
+      }
+      .sr-agent-logo span {
+        color: #e11d48;
+        font-weight: 900;
+      }
+
+      .sr-agent-name {
+        font-weight: 800;
+      }
+      .sr-active-text {
+        font-size: 12px;
+        color: #64748b;
+        font-style: italic;
+        font-weight: 600;
+        margin-top: 2px;
+      }
+      html.dark .sr-active-text {
+        color: #94a3b8;
+      }
+
+      .sr-actions {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+      }
+      @media (min-width: 576px) {
+        .sr-actions {
+          width: auto;
+        }
+      }
+      .sr-btn-gray {
+        background: #f1f5f9;
+        color: #0f172a;
+        border: none;
+        border-radius: 14px;
+        padding: 12px 20px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        transition: background 180ms ease;
+      }
+      html.dark .sr-btn-gray {
+        background: #334155;
+        color: #ffffff;
+      }
+      .sr-btn-gray:hover {
+        background: #e2e8f0;
+      }
+      html.dark .sr-btn-gray:hover {
+        background: #475569;
+      }
+
+      .sr-btn-primary {
+        background: #e11d48;
+        color: #ffffff;
+        border: none;
+        border-radius: 14px;
+        padding: 12px 26px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        box-shadow: 0 18px 35px rgba(225, 29, 72, 0.2);
+        transition: box-shadow 180ms ease;
+      }
+      .sr-btn-primary:hover {
+        box-shadow: 0 22px 45px rgba(225, 29, 72, 0.4);
+      }
+
+      /* Awaiting image block */
+      .sr-await {
+        background: #f1f5f9;
+        color: #cbd5e1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 32px;
+      }
+      html.dark .sr-await {
+        background: rgba(2, 6, 23, 0.35);
+        color: #334155;
+      }
+      .sr-await .material-symbols-outlined {
+        font-size: 96px;
+        opacity: 0.5;
+        margin-bottom: 10px;
+      }
+      .sr-await-title {
+        font-size: 22px;
+        font-weight: 900;
+        margin: 0;
+        opacity: 0.9;
+      }
+
+      /* Pagination */
+      .sr-pager {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        padding-top: 48px;
+      }
+      .sr-pagebtn {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        border: 1px solid #e2e8f0;
+        background: #ffffff;
+        color: #94a3b8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          border-color 180ms ease,
+          background 180ms ease;
+      }
+      html.dark .sr-pagebtn {
+        background: #1e293b;
+        border: 1px solid #334155;
+        color: #94a3b8;
+      }
+      .sr-pagebtn:hover {
+        border-color: #e11d48;
+        text-decoration: none;
+      }
+      .sr-pagebtn.sr-current {
+        background: #e11d48;
+        border-color: #e11d48;
+        color: #ffffff;
+        font-weight: 900;
+        box-shadow: 0 18px 35px rgba(225, 29, 72, 0.2);
+      }
+      .sr-pagebtn.sr-num {
+        color: #475569;
+        font-weight: 900;
+      }
+      html.dark .sr-pagebtn.sr-num {
+        color: #94a3b8;
+      }
+
+      /* ===== MOBILE FIX (DESIGN SAME) ===== */
+      @media (max-width: 575.98px) {
+        .sr-header-row {
+          flex-wrap: nowrap !important;
+          gap: 12px !important;
+        }
+        .sr-title-wrap {
+          min-width: 0 !important;
+          flex: 1 1 auto !important;
+        }
+        .sr-title {
+          word-break: keep-all !important;
+          overflow-wrap: normal !important;
+        }
+        .sr-price-wrap {
+          flex: 0 0 auto !important;
+          min-width: 120px;
+          text-align: right !important;
+        }
+        .sr-price {
+          white-space: nowrap !important;
+        }
+        .sr-price-sub {
+          white-space: normal !important;
+        }
+      }
+
+      /* Small helpers previously inline */
+      .sr-filter-row {
+        row-gap: 14px;
+      }
+      .sr-price-range-row {
+        gap: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- FILTERS -->
+    <section class="sr-filters">
+      <div class="container sr-container px-3 py-3">
+        <div class="row align-items-end sr-filter-row">
+          <div class="col-12 col-sm-6 col-md">
+            <label class="sr-filter-label">Property Type</label>
+            <select class="form-control sr-select">
+              <option>For Rent</option>
+              <option>For Sale</option>
+            </select>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md">
+            <label class="sr-filter-label">Search Radius</label>
+            <select class="form-control sr-select">
+              <option>Within 100 miles</option>
+              <option>Within 50 miles</option>
+              <option>Within 25 miles</option>
+              <option>Within 10 miles</option>
+            </select>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md">
+            <label class="sr-filter-label">Added to site</label>
+            <select class="form-control sr-select">
+              <option>Anytime</option>
+              <option>Last 24 hours</option>
+              <option>Last 3 days</option>
+              <option>Last week</option>
+            </select>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4">
+            <label class="sr-filter-label">Price Range (£)</label>
+            <div class="row no-gutters sr-price-range-row">
+              <div class="col">
+                <select class="form-control sr-select">
+                  <option>Min Price</option>
+                  <option>£500</option>
+                  <option>£1,000</option>
+                </select>
+              </div>
+              <div class="col">
+                <select class="form-control sr-select">
+                  <option>Max Price</option>
+                  <option>£2,000</option>
+                  <option>£5,000+</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-auto">
+            <button class="sr-btn-update">Update Results</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN -->
+    <main class="container sr-container px-3 sr-main">
+      <div class="d-flex flex-column sr-stack-32">
+        <!-- Header Row -->
+        <div
+          class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between sr-header-row-wrap"
+        >
+          <div>
+            <h1 class="sr-header-title">Search Results (2)</h1>
+            <p class="sr-subtext mb-0" style="margin-top: 6px">
+              Properties available in
+              <span style="color: #0f172a; font-weight: 600">Oldham area</span>
+            </p>
+          </div>
+
+          <div class="d-flex align-items-center" style="gap: 16px">
+            <div class="sr-sell-box">
+              <span class="sr-sell-small">Want to sell?</span>
+              <a href="#" class="sr-sell-link">List your property</a>
+            </div>
+
+            <div class="sr-view-toggle">
+              <button class="sr-toggle-btn sr-active" type="button">
+                <span class="material-symbols-outlined"
+                  >format_list_bulleted</span
+                >
+              </button>
+              <button class="sr-toggle-btn" type="button">
+                <span class="material-symbols-outlined">grid_view</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="d-flex flex-column sr-stack-32">
+          <!-- Card 1 -->
+          <div class="sr-card">
+            <div class="d-flex flex-column flex-lg-row">
+              <div class="sr-media sr-w-480 sr-w-560">
+                <img
+                  alt="Beautiful red brick terraced house"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB74pZP0oQx_ndaLC58kfmCBtANDE_1vDlDLaELX5tjde1XP36GxJ03gwmEk8fKlr_x7qtlicXnnMIh0IkcF9X9rAfqLEV8G3sl5sEvITsBILJU1tOVtCCnAVaT0IEIIlNWjJSkrJvqmHvVUyBsYhPRDNEX4YJ_PrdWcXKZ9GHA4pVqk_OpLy6B51mdsyRCpTlV_yAEEO2U6MWJKloaDJPCZOWTizPLqBs3eH70NZh8UQ0YPHQEqjNzXq6KeyVnCUKwQsFuBTdi40Q"
+                />
+
+                <div class="sr-chip">
+                  <span class="material-symbols-outlined">photo_camera</span>
+                  <span>1 / 3</span>
+                </div>
+
+                <div class="sr-new">NEW LISTING</div>
+
+                <div class="sr-dots">
+                  <div class="sr-dot sr-dot-active"></div>
+                  <div class="sr-dot"></div>
+                  <div class="sr-dot"></div>
+                </div>
+
+                <button class="sr-fav" type="button" aria-label="Favorite">
+                  <span class="material-symbols-outlined">favorite</span>
+                </button>
+              </div>
+
+              <div
+                class="sr-card-body d-flex flex-column justify-content-between flex-fill"
+              >
+                <div>
+                  <div
+                    class="d-flex justify-content-between align-items-start sr-header-row"
+                    style="gap: 16px; margin-bottom: 22px"
+                  >
+                    <div class="sr-title-wrap">
+                      <h3 class="sr-title">560 Rochdale Road</h3>
+                      <div class="sr-loc">
+                        <span class="material-symbols-outlined"
+                          >location_on</span
+                        >
+                        <span>Royton, Oldham, OL2</span>
+                      </div>
+                    </div>
+
+                    <div class="sr-price-wrap">
+                      <div class="sr-price">£1,995.00</div>
+                      <div class="sr-price-sub">per month (£498.75 pw)</div>
+                    </div>
+                  </div>
+
+                  <div class="sr-badges">
+                    <div class="sr-badge">
+                      <span class="material-symbols-outlined">home</span>
+                      <span>Terraced</span>
+                    </div>
+                    <div class="sr-badge">
+                      <span class="material-symbols-outlined">king_bed</span>
+                      <span>5 Bedrooms</span>
+                    </div>
+                    <div class="sr-badge">
+                      <span class="material-symbols-outlined">bathtub</span>
+                      <span>1 Bathroom</span>
+                    </div>
+                    <div class="sr-badge">
+                      <span class="material-symbols-outlined">square_foot</span>
+                      <span>1,240 sq ft</span>
+                    </div>
+                  </div>
+
+                  <p class="sr-desc">
+                    This spacious family home benefits from high ceilings, a
+                    well planned layout and modern finishings throughout.
+                    Located in a popular residential area with excellent local
+                    schools and transport links.
+                  </p>
+
+                  <a class="sr-details" href="#">
+                    View Full Details
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                  </a>
+
+                  <div
+                    class="sr-divider d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between"
+                    style="gap: 16px"
+                  >
+                    <div class="sr-agent">
+                      <div class="sr-agent-logo"><span>JP</span></div>
+                      <div>
+                        <div class="sr-agent-name">Listed by JP Estates</div>
+                        <div class="sr-active-text">Active 2 hours ago</div>
+                      </div>
+                    </div>
+
+                    <div class="sr-actions d-flex flex-column flex-sm-row">
+                      <button class="sr-btn-gray" type="button">
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 22px"
+                          >call</span
+                        >
+                        <span>Call</span>
+                      </button>
+                      <button class="sr-btn-primary" type="button">
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 22px"
+                          >mail</span
+                        >
+                        <span>Contact Agent</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="sr-card">
+            <div class="d-flex flex-column flex-lg-row">
+              <div class="sr-media sr-w-480 sr-w-560 sr-await">
+                <span class="material-symbols-outlined">no_photography</span>
+                <p class="sr-await-title">Awaiting Image</p>
+
+                <button class="sr-fav" type="button" aria-label="Favorite">
+                  <span class="material-symbols-outlined">favorite</span>
+                </button>
+              </div>
+
+              <div
+                class="sr-card-body d-flex flex-column justify-content-between flex-fill"
+              >
+                <div>
+                  <div
+                    class="d-flex justify-content-between align-items-start sr-header-row"
+                    style="gap: 16px; margin-bottom: 22px"
+                  >
+                    <div class="sr-title-wrap">
+                      <h3 class="sr-title">77 Villa Road</h3>
+                      <div class="sr-loc">
+                        <span class="material-symbols-outlined"
+                          >location_on</span
+                        >
+                        <span>Oldham, OL8</span>
+                      </div>
+                    </div>
+
+                    <div class="sr-price-wrap">
+                      <div class="sr-price">£900.00</div>
+                      <div class="sr-price-sub">per month (£225.00 pw)</div>
+                    </div>
+                  </div>
+
+                  <div class="sr-badges">
+                    <div class="sr-badge">
+                      <span class="material-symbols-outlined">home</span>
+                      <span>Terraced</span>
+                    </div>
+                    <div class="sr-badge">
+                      <span class="material-symbols-outlined">king_bed</span>
+                      <span>2 Bedrooms</span>
+                    </div>
+                    <div class="sr-badge">
+                      <span class="material-symbols-outlined">bathtub</span>
+                      <span>1 Bathroom</span>
+                    </div>
+                  </div>
+
+                  <p class="sr-desc">
+                    Two bed terraced house located close to all local amenities
+                    and public transport. Comprising entrance porch, Reception
+                    room and updated kitchen area...
+                  </p>
+
+                  <a class="sr-details" href="#">
+                    View Full Details
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                  </a>
+
+                  <div
+                    class="sr-divider d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between"
+                    style="gap: 16px"
+                  >
+                    <div class="sr-agent">
+                      <div class="sr-agent-logo"><span>JP</span></div>
+                      <div>
+                        <div class="sr-agent-name">Listed by JP Estates</div>
+                        <div class="sr-active-text">Active 1 day ago</div>
+                      </div>
+                    </div>
+
+                    <div class="sr-actions d-flex flex-column flex-sm-row">
+                      <button class="sr-btn-gray" type="button">
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 22px"
+                          >call</span
+                        >
+                        <span>Call</span>
+                      </button>
+                      <button class="sr-btn-primary" type="button">
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 22px"
+                          >mail</span
+                        >
+                        <span>Contact Agent</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="sr-pager">
+          <a href="#" class="sr-pagebtn" aria-label="Previous">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </a>
+          <a href="#" class="sr-pagebtn sr-current">1</a>
+          <a href="#" class="sr-pagebtn sr-num">2</a>
+          <a href="#" class="sr-pagebtn" aria-label="Next">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
