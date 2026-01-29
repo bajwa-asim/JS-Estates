@@ -8,10 +8,10 @@ html {
   box-sizing: inherit;
 }
 html,
-body {
+.jp-page {
   height: 100%;
 }
-body {
+.jp-page {
   margin: 0;
   font-family: "Inter", sans-serif;
   color: #0f172a;
@@ -44,30 +44,30 @@ body {
     "GRAD" 0,
     "opsz" 24;
 }
-body.page-contact-us {
+.jp-page.page-contact-us {
   font-family: "Inter", sans-serif;
   background: #f9fafb;
   color: #0f172a;
   min-height: 100vh;
 }
-body.page-contact-form {
+.jp-page.page-contact-form {
   font-family: "Inter", sans-serif;
   background: #ffffff;
   color: #0f172a;
   min-height: 100vh;
 }
-body.page-home {
+.jp-page.page-home {
   font-family: "Plus Jakarta Sans", sans-serif;
   background: #f8fafc;
   color: #0f172a;
 }
-body.page-login {
+.jp-page.page-login {
   font-family: "Inter", sans-serif;
   background: #f9fafb;
   color: #0f172a;
 }
-body.page-property-detail,
-body.page-search-results {
+.jp-page.page-property-detail,
+.jp-page.page-search-results {
   background: #f8fafc;
   color: #0f172a;
 }
@@ -81,10 +81,10 @@ body.page-search-results {
       }
 
       html,
-      body {
+      .jp-page {
         height: 100%;
       }
-      body.page-contact-us {
+      .jp-page.page-contact-us {
         margin: 0;
         font-family: "Inter", sans-serif;
         background: #f9fafb;
@@ -381,7 +381,7 @@ body.page-search-results {
       }
 
 /* Contact Form page */
-body.page-contact-form {
+.jp-page.page-contact-form {
         font-family: "Inter", sans-serif;
         background: #ffffff;
         color: #0f172a;
@@ -532,10 +532,10 @@ body.page-contact-form {
        Global (NO CSS variables)
        ========================= */
       html,
-      body {
+      .jp-page {
         height: 100%;
       }
-      body.page-home {
+      .jp-page.page-home {
         margin: 0;
         font-family: "Plus Jakarta Sans", sans-serif;
         background: #f8fafc;
@@ -1022,10 +1022,10 @@ body.page-contact-form {
         Base (minimal global; rest is scoped)
       ---------------------------- */
       html,
-      body {
+      .jp-page {
         height: 100%;
       }
-      body.page-login {
+      .jp-page.page-login {
         font-family: "Inter", sans-serif;
         background: #f9fafb;
         color: #0f172a;
@@ -1341,11 +1341,11 @@ body.page-contact-form {
          Base (NO dark mode)
       -------------------------- */
       html,
-      body {
+      .jp-page {
         font-family: "Inter", sans-serif;
       }
 
-      body.page-property-detail {
+      .jp-page.page-property-detail {
         margin: 0;
         color: #0f172a;
         background: #f8fafc;
@@ -2008,10 +2008,10 @@ body.page-contact-form {
 /* Property Search Results page */
 /* Base */
       html,
-      body {
+      .jp-page {
         height: 100%;
       }
-      body.page-search-results {
+      .jp-page.page-search-results {
         font-family: "Inter", sans-serif;
         background: #f8fafc;
         color: #0f172a;
@@ -2022,10 +2022,6 @@ body.page-contact-form {
       }
 
       /* Dark mode (NO CSS variables) */
-      html.dark body {
-        background: #0f172a;
-        color: #f1f5f9;
-      }
 
       /* Container max width (Bootstrap-ish but custom ~1250px) */
       .sr-container {
@@ -2048,10 +2044,6 @@ body.page-contact-form {
         background: #ffffff;
         border-bottom: 1px solid #e2e8f0;
       }
-      html.dark .sr-filters {
-        background: #0b1220;
-        border-bottom: 1px solid #1e293b;
-      }
       .sr-filter-label {
         display: block;
         font-size: 10px;
@@ -2069,11 +2061,6 @@ body.page-contact-form {
         background: #f8fafc;
         border: 1px solid #e2e8f0;
         box-shadow: none;
-      }
-      html.dark .sr-select {
-        background: #1e293b;
-        border: 1px solid #334155;
-        color: #e2e8f0;
       }
       .sr-select:focus {
         border-color: #e11d48 !important;
@@ -2102,9 +2089,6 @@ body.page-contact-form {
       .sr-subtext {
         color: #64748b;
       }
-      html.dark .sr-subtext {
-        color: #94a3b8;
-      }
 
       .sr-header-title {
         font-size: 32px;
@@ -2126,26 +2110,16 @@ body.page-contact-form {
         align-items: center;
         gap: 12px;
       }
-      html.dark .sr-sell-box {
-        background: rgba(225, 29, 72, 0.1);
-        border: 1px solid rgba(225, 29, 72, 0.2);
-      }
       .sr-sell-small {
         font-size: 12px;
         font-weight: 600;
         color: #cbd5e1;
-      }
-      html.dark .sr-sell-small {
-        color: #e11d48;
       }
       .sr-sell-link {
         font-size: 14px;
         font-weight: 800;
         color: #ffffff;
         text-decoration: none;
-      }
-      html.dark .sr-sell-link {
-        color: #e11d48;
       }
       .sr-sell-link:hover {
         text-decoration: underline;
@@ -2160,10 +2134,6 @@ body.page-contact-form {
         display: flex;
         align-items: center;
         gap: 6px;
-      }
-      html.dark .sr-view-toggle {
-        background: #1e293b;
-        border: 1px solid #334155;
       }
       .sr-toggle-btn {
         width: 40px;
@@ -2183,15 +2153,9 @@ body.page-contact-form {
         background: #f8fafc;
         color: #94a3b8;
       }
-      html.dark .sr-toggle-btn:hover {
-        background: #0b1220;
-      }
       .sr-toggle-btn.sr-active {
         background: #f1f5f9;
         color: #e11d48;
-      }
-      html.dark .sr-toggle-btn.sr-active {
-        background: #334155;
       }
 
       /* Main padding */
@@ -2213,10 +2177,6 @@ body.page-contact-form {
         transition:
           box-shadow 280ms ease,
           transform 280ms ease;
-      }
-      html.dark .sr-card {
-        background: #1e293b;
-        border: 1px solid #334155;
       }
       .sr-card:hover {
         box-shadow: 0 28px 70px rgba(2, 6, 23, 0.18);
@@ -2325,9 +2285,6 @@ body.page-contact-form {
         align-items: center;
         justify-content: center;
       }
-      html.dark .sr-fav {
-        background: rgba(15, 23, 42, 0.9);
-      }
       .sr-fav:hover {
         color: #e11d48;
         transform: scale(1.1);
@@ -2370,9 +2327,6 @@ body.page-contact-form {
         gap: 6px;
         font-size: 18px;
       }
-      html.dark .sr-loc {
-        color: #94a3b8;
-      }
       .sr-loc .material-symbols-outlined {
         font-size: 20px;
       }
@@ -2396,9 +2350,6 @@ body.page-contact-form {
         font-weight: 500;
         margin-top: 6px;
       }
-      html.dark .sr-price-sub {
-        color: #94a3b8;
-      }
 
       .sr-badges {
         display: flex;
@@ -2418,11 +2369,6 @@ body.page-contact-form {
         font-weight: 700;
         color: #0f172a;
       }
-      html.dark .sr-badge {
-        background: #0b1220;
-        border: 1px solid #1e293b;
-        color: #f1f5f9;
-      }
       .sr-badge .material-symbols-outlined {
         color: #94a3b8;
         font-size: 22px;
@@ -2437,9 +2383,6 @@ body.page-contact-form {
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-      }
-      html.dark .sr-desc {
-        color: #94a3b8;
       }
 
       .sr-details {
@@ -2467,9 +2410,6 @@ body.page-contact-form {
         padding-top: 26px;
         border-top: 1px solid #f1f5f9;
       }
-      html.dark .sr-divider {
-        border-top: 1px solid #334155;
-      }
 
       .sr-agent {
         display: flex;
@@ -2487,10 +2427,6 @@ body.page-contact-form {
         justify-content: center;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
       }
-      html.dark .sr-agent-logo {
-        background: #334155;
-        border: 1px solid #475569;
-      }
       .sr-agent-logo span {
         color: #e11d48;
         font-weight: 900;
@@ -2505,9 +2441,6 @@ body.page-contact-form {
         font-style: italic;
         font-weight: 600;
         margin-top: 2px;
-      }
-      html.dark .sr-active-text {
-        color: #94a3b8;
       }
 
       .sr-actions {
@@ -2534,15 +2467,8 @@ body.page-contact-form {
         width: 100%;
         transition: background 180ms ease;
       }
-      html.dark .sr-btn-gray {
-        background: #334155;
-        color: #ffffff;
-      }
       .sr-btn-gray:hover {
         background: #e2e8f0;
-      }
-      html.dark .sr-btn-gray:hover {
-        background: #475569;
       }
 
       .sr-btn-primary {
@@ -2574,10 +2500,6 @@ body.page-contact-form {
         justify-content: center;
         text-align: center;
         padding: 32px;
-      }
-      html.dark .sr-await {
-        background: rgba(2, 6, 23, 0.35);
-        color: #334155;
       }
       .sr-await .material-symbols-outlined {
         font-size: 96px;
@@ -2612,11 +2534,6 @@ body.page-contact-form {
           border-color 180ms ease,
           background 180ms ease;
       }
-      html.dark .sr-pagebtn {
-        background: #1e293b;
-        border: 1px solid #334155;
-        color: #94a3b8;
-      }
       .sr-pagebtn:hover {
         border-color: #e11d48;
         text-decoration: none;
@@ -2631,9 +2548,6 @@ body.page-contact-form {
       .sr-pagebtn.sr-num {
         color: #475569;
         font-weight: 900;
-      }
-      html.dark .sr-pagebtn.sr-num {
-        color: #94a3b8;
       }
 
       /* ===== MOBILE FIX (DESIGN SAME) ===== */
