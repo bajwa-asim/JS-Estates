@@ -104,6 +104,10 @@ html,
   color: #64748b;
 }
 
+.re-highlight {
+  color: #0f172a;
+}
+
 .re-card {
   background: #ffffff;
   border: 1px solid #f1f5f9;
@@ -2046,6 +2050,21 @@ html,
 /* Header */
 .sr-subtext {
   color: #64748b;
+  margin-top: 6px;
+}
+
+.sr-highlight-text {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.sr-header-row {
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.sr-header-actions {
+  gap: 16px;
 }
 
 .sr-header-title {
@@ -2369,6 +2388,10 @@ html,
   border-top: 1px solid #f1f5f9;
 }
 
+.sr-divider-row {
+  gap: 16px;
+}
+
 .sr-agent {
   display: flex;
   align-items: center;
@@ -2446,6 +2469,10 @@ html,
 }
 .sr-btn-primary:hover {
   box-shadow: 0 22px 45px rgba(225, 29, 72, 0.4);
+}
+
+.sr-btn-icon-lg {
+  font-size: 22px;
 }
 
 /* Awaiting image block */
